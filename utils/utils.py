@@ -69,6 +69,31 @@ def head_ev():
     st.markdown("<h1 style='text-align: center; font-size: 30px;'><br>🌐 Atualização de informações 🌐</h1>",
                 unsafe_allow_html=True)
 
+def head_new_data():
+    st.set_page_config(page_title="Entrevistas", page_icon="🎤")
+    with open('./utils/front.css') as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    try:
+        with open('./utils/logo_jr.png', 'rb') as logo_file:
+            logo_base64 = base64.b64encode(logo_file.read()).decode('utf-8')
+            st.markdown(f'<p align="center"><img src="data:image/png;base64,{logo_base64}" width="500"></p>',
+                        unsafe_allow_html=True)
+    except FileNotFoundError:
+        st.error("Logo file not found")
+    st.markdown(
+            "<h1 style='text-align: center; font-size: 38px;'>Adicionar novas entrevistas no database<br>Fundação Potência</h1>",
+        unsafe_allow_html=True)
+
+    st.markdown(
+        "<p style='text-align: center;'>>>> Aplicativo desenvolvido para atualização de informações de medalhistas olímpicos <<<</p>",
+        unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; font-size: 30px;'>Banco de dados: Olimpíadas</h1>",
+                unsafe_allow_html=True)
+    st.markdown(
+        """ <div style="text-align: center; font-size: 20px;"> Nessa página, é possível adicionar novos dados de olimpíadas</div>""",
+        unsafe_allow_html=True)
+
+
 class CacheManager:
     @staticmethod
     def clear_cache():
