@@ -83,7 +83,7 @@ class StudentApp:
                 st.error(f"Erro: As colunas do arquivo passado não são iguais às colunas do database. "
                          f"Por favor, verifique se o arquivo passado possui as colunas corretas. Caso seja necessário, a página *Como Usar* possui um tutorial de uso bem como o arquivo base para adicionar olimpíadas.")
         except Exception as e:
-            if uploaded_file is not None:
+            if uploaded_file is not None and 'df_cloud' in st.session_state:
                 st.error(f"Erro ao processar tabela: {e}")
 
     def format_df(self, df):

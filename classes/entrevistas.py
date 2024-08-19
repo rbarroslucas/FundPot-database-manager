@@ -81,7 +81,7 @@ class StudentApp:
                          f"Por favor, verifique se o arquivo passado possui as colunas corretas. Caso seja necessário, a página *Como Usar* possui um tutorial de uso bem como o arquivo base para adicionar entrevistas.")
 
         except Exception as e:
-            if uploaded_file is not None:
+            if uploaded_file is not None and 'df_cloud' in st.session_state:
                 st.error(f"Erro ao processar tabela: {e}")
 
 

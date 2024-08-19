@@ -99,4 +99,3 @@ class CacheManager:
         for key in st.session_state.keys():
             del st.session_state[key]
         st.cache_data.clear()
-        print("cache limpo")

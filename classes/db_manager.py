@@ -44,7 +44,9 @@ class DatabaseManager:
         """
         Saves the backlog of changes to the Google Spreadsheet.
         """
-        sheet = self.spread.open_sheet(self.sheet_name)
+
+        sheets = self.spread.sheets
+        sheet = next((s for s in sheets if s.title == self.sheet_name), None)
         updates = []
 
         for change in self.backlog:
@@ -135,7 +137,9 @@ class DatabaseManager:
         Substitutes the current df to the Google Spreadsheet.
         """
         try:
-            self.spread.df_to_sheet(st.session_state.df, index=False, sheet=self.sheet_name)
+            sheets = self.spread.sheets
+            sheet = next((s for s in sheets if s.title == self.sheet_name), None)
+            self.spread.df_to_sheet(st.session_state.df, index=False, sheet=sheet)
             st.success("Alterações salvas com sucesso!")
         except Exception as e:
             st.error(f"Erro ao salvar alterações: {e}")
