@@ -22,6 +22,7 @@ class DatabaseManager:
         """
         self.spread = Spread(spread_name, client=client)
         self.df = self.load_data(st.secrets[spread_name]["sheet_name"])
+        self.sheet_name = st.secrets[spread_name]["sheet_name"]
         self.backlog = []
 
     def load_data(self, sheet_name):
@@ -43,7 +44,7 @@ class DatabaseManager:
         """
         Saves the backlog of changes to the Google Spreadsheet.
         """
-        sheet = self.spread.sheets[0]
+        sheet = self.spread.open_sheet(self.sheet_name)
         updates = []
 
         for change in self.backlog:
@@ -134,7 +135,7 @@ class DatabaseManager:
         Substitutes the current df to the Google Spreadsheet.
         """
         try:
-            self.spread.df_to_sheet(st.session_state.df, index=False, sheet=self.spread.sheets[0])
+            self.spread.df_to_sheet(st.session_state.df, index=False, sheet=self.sheet_name)
             st.success("Alterações salvas com sucesso!")
         except Exception as e:
             st.error(f"Erro ao salvar alterações: {e}")
