@@ -1,8 +1,4 @@
 # Fundação Potência's database manager, built with Streamlit and integrated with Google Sheets.
- 
-# Streamlit Apps to Update Datasets
-
-Welcome to the Streamlit App for updating datasets. This repository contains a Streamlit application designed to manage and update various datasets stored on Google Drive. It also includes a mechanism to handle authentication if the Google Drive API token expires.
 
 ## Table of Contents
 
@@ -14,9 +10,7 @@ Welcome to the Streamlit App for updating datasets. This repository contains a S
 
 ## Overview
 
-This Streamlit application allows users to:
-- View a home page.
-- Update three different databases.
+This repository contains a Streamlit application designed to manage and update many datasets stored on Google Drive/Sheets. It also includes a mechanism to handle authentication if the Google Drive API token expires.
 
 ## Files
 
