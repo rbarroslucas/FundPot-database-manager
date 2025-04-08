@@ -1,4 +1,4 @@
-# Refactoring FundPot Streamlit 
+# Fundação Potência's database manager, built with Streamlit and integrated with Google Sheets.
  
 # Streamlit Apps to Update Datasets
 
